@@ -37,9 +37,8 @@ export class Alignment
         var edit = this.View.StartEdit();
         try
         {
-            for (var i in data)
+            for (let change of data)
             {
-                var change = data[i];
                 var spaces = this.GetSpacesToInsert(change.Position, targetPosition)
                 if (!edit.Insert(change.Line, change.Index, spaces))
                     return;

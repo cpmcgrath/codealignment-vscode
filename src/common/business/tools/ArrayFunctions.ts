@@ -4,16 +4,16 @@
     {
         var maxVal = -1;
         var items : T[] = [];
-        for (var i in source)
+        for (let item of source)
         {
-            var result = callbackfn(source[i]);
+            var result = callbackfn(item);
             if (result > maxVal)
             {
                 maxVal = result;
                 items = [];
             }
             if (result === maxVal)
-                items.push(source[i]);
+                items.push(item);
         }
 
         return items;
@@ -22,9 +22,9 @@
     static Max<T>(source : T[], callbackfn: (value: T) => number) : number
     {
         var maxVal = -1;
-        for (var i in source)
+        for (let item of source)
         {
-            var result = callbackfn(source[i]);
+            var result = callbackfn(item);
             if (result > maxVal)
                 maxVal = result;
         }
@@ -37,13 +37,14 @@
         var isEmpty = true;
         var result  = "";
 
-        for (var item in instance)
+        for (let item of instance)
         {
-            result += item;
             if (isEmpty)
                 isEmpty = false;
             else
                 result += join;
+
+            result += item;
         }
 
         return result;

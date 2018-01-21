@@ -1,0 +1,40 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+platform:
+    - All
+
+configuration:
+    - Release
+
+install:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - npm install
+    - npm install -g vsce
+
+build_script:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - ps: >-
+        if ($true)
+        {
+            $file      = "package.json"
+            $a         = Get-Content $file -raw | ConvertFrom-Json
+            $a.version = $env:appveyor_build_version
+            $a | ConvertTo-Json -Depth 20 | set-content $file
+        }
+    - vsce package
+
+after_build:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - ps: Push-AppveyorArtifact "codealignment-vscode-$env:appveyor_build_version.vsix"
+
+deploy:
+    provider: GitHub
+    auth_token:
+        secure: TA1/2G21wUBPSWRbmBul7xGvE3YpX8n8AEooMuwkiqhxGhD2bLJ0Y//rS7+qwIN1
+    draft: true
+    prerelease: false
+    force_update: true
+    on:
+        branch: master
+        appveyor_repo_tag: true

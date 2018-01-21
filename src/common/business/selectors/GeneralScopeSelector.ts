@@ -43,6 +43,7 @@
     private IsLineBlank(view: IDocument, lineNo: number) : boolean
     {
         //return Regex.IsMatch(view.GetLineFromLineNumber(lineNo).Text, this.ScopeSelectorRegex);
-        return view.GetLineFromLineNumber(lineNo).Text.match(this.ScopeSelectorRegex).index >= 0;
+        var line = view.GetLineFromLineNumber(lineNo);
+        return line.Text.match(this.ScopeSelectorRegex) !== null;
     }
 }

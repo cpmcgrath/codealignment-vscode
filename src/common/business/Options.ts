@@ -14,8 +14,8 @@ export class Options implements IOptions //: INotifyPropertyChanged
     {
         //this.Shortcuts               = KeyShortcut.Get(m_settings.Shortcuts).ToList();
         //this.XmlTypes                = m_settings.XmlTypes.Cast<string>().ToArray();
-        //this.ScopeSelectorLineValues = m_settings.ScopeSelectorLineValues;
-        //this.ScopeSelectorLineEnds   = m_settings.ScopeSelectorLineEnds;
+        this.ScopeSelectorLineValues = " { } }; ( )"; //m_settings.ScopeSelectorLineValues;
+        this.ScopeSelectorLineEnds   = ""; //m_settings.ScopeSelectorLineEnds;
         //this.UseIdeTabSettings       = m_settings.UseIdeTabSettings;
     }
 

@@ -1,7 +1,7 @@
 ﻿import { NormalDelimiterFinder } from "./NormalDelimiterFinder";
 import { DelimiterResult       } from "./DelimiterResult";
 
-class RegexDelimiterFinder extends NormalDelimiterFinder
+export class RegexDelimiterFinder extends NormalDelimiterFinder
 {
     //override
     GetIndex(source: string, delimiter: string, minIndex: number, tabSize: number) : DelimiterResult
