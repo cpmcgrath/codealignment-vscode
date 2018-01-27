@@ -24,6 +24,12 @@
             { "command": "codealignment.alignbyperiod", "title"  : "Align by period (Code Alignment)" },
             { "command": "codealignment.alignbyquote",  "title"  : "Align by quote (Code Alignment)" },
             { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" }
+        ],
+        "keybindings" : [
+            { "command": "codealignment.alignbystring", "key": "ctrl+shift+=",  "mac": "cmd+shift+=", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyequals", "key": "ctrl+= ctrl+=", "mac": "cmd+= cmd+=", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyperiod", "key": "ctrl+= ctrl+.", "mac": "cmd+= cmd+.", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyquote",  "key": "ctrl+= ctrl+'", "mac": "cmd+= cmd+'", "when": "editorTextFocus"}
         ]
     },
     "scripts": {
