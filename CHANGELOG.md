@@ -2,14 +2,12 @@
 All notable changes to the "codealignment-vscode" extension will be documented in this file.
 
 ## [Unreleased]
-- Remember history
-- Allow Alignments from Caret Position
-- Allow Alignments to use Complex Regex
-- Expose Align by Space
-- Allow Alignments to be chained
-- Introduce the XML Automatic scope selection for XML-like content type
-- Expose Options (including Shortcut functions)
+- #6 Allow Alignments from Caret Position
+- #8 Expose Align by Space
 
+## 1.2 - 2018-01-28
+### Added
+- #10 Introduce key bindings 
 
 ## 1.0 - 2018-01-27
 ### Added

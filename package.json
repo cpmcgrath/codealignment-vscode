@@ -1,7 +1,7 @@
 {
     "name"        : "codealignment-vscode",
-    "displayName" : "Code Alignment",
-    "description" : "Code Alignment for Visual Studio Code. Based on the Extension for Visual Studio, many features are currently missing and will be added in time. Feedback welcome.",
+    "displayName" : "Code alignment",
+    "description" : "Code Alignment for Visual Studio Code. Based on the Extension for Visual Studio.",
     "version"     : "0.0.1",
     "publisher"   : "cpmcgrath",
     "engines"     : { "vscode": "^1.19.0" },
@@ -24,6 +24,12 @@
             { "command": "codealignment.alignbyperiod", "title"  : "Align by period (Code Alignment)" },
             { "command": "codealignment.alignbyquote",  "title"  : "Align by quote (Code Alignment)" },
             { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" }
+        ],
+        "keybindings" : [
+            { "command": "codealignment.alignbystring", "key": "ctrl+shift+=",  "mac": "cmd+shift+=", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyequals", "key": "ctrl+= ctrl+=", "mac": "cmd+= cmd+=", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyperiod", "key": "ctrl+= ctrl+.", "mac": "cmd+= cmd+.", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyquote",  "key": "ctrl+= ctrl+'", "mac": "cmd+= cmd+'", "when": "editorTextFocus"}
         ]
     },
     "scripts": {
