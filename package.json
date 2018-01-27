@@ -1,0 +1,42 @@
+{
+    "name"        : "codealignment-vscode",
+    "displayName" : "Code Alignment",
+    "description" : "Code Alignment for Visual Studio Code. Based on the Extension for Visual Studio, many features are currently missing and will be added in time. Feedback welcome.",
+    "version"     : "0.0.1",
+    "publisher"   : "cpmcgrath",
+    "engines"     : { "vscode": "^1.19.0" },
+    "categories"  : [ "Formatters" ],
+    "keywords"    : [ "align", "alignment", "formatting" ],
+    "repository": { "type": "git", "url": "https://github.com/cpmcgrath/codealignment-vscode" },
+    "icon"        : "images/CodeAlignment.png",
+    "activationEvents": [
+        "onCommand:codealignment.alignbystring",
+        "onCommand:codealignment.alignbyequals",
+        "onCommand:codealignment.alignbyperiod",
+        "onCommand:codealignment.alignbyquote",
+        "onCommand:codealignment.alignbyregex"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            { "command": "codealignment.alignbystring", "title"  : "Align by string (Code Alignment)" },
+            { "command": "codealignment.alignbyequals", "title"  : "Align by equals (Code Alignment)" },
+            { "command": "codealignment.alignbyperiod", "title"  : "Align by period (Code Alignment)" },
+            { "command": "codealignment.alignbyquote",  "title"  : "Align by quote (Code Alignment)" },
+            { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish" : "npm run compile",
+        "compile"           : "tsc -p ./",
+        "watch"             : "tsc -watch -p ./",
+        "postinstall"       : "node ./node_modules/vscode/bin/install",
+        "test"              : "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript"   : "^2.6.1",
+        "vscode"       : "^1.1.6",
+        "@types/node"  : "^7.0.43",
+        "@types/mocha" : "^2.2.42"
+    }
+}
