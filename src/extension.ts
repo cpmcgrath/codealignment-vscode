@@ -8,18 +8,25 @@ import { GeneralScopeSelector } from './common/business/selectors/GeneralScopeSe
 import { RegexDelimiterFinder } from './common/business/delimiterFinders/RegexDelimiterFinder';
 import { Options              } from './common/business/Options';
 
-function doAlignment(delimiter: string, useRegex: boolean = false)
+function doAlignment(delimiter: string, useRegex: boolean = false, fromCaret: boolean = false)
 {
-    var alignment      = new Alignment();
+    let alignment      = new Alignment();
     alignment.View     = new Document(vscode.window.activeTextEditor);
-    var selector       = new GeneralScopeSelector();
+    let selector       = new GeneralScopeSelector();
     selector.ScopeSelectorRegex = new Options().ScopeSelectorRegex;
     alignment.Selector = selector;
 
     if (useRegex)
         alignment.Finder = new RegexDelimiterFinder();
 
-    alignment.PerformAlignment(delimiter, 0, false);
+    let startIndex = 0;
+    if (fromCaret)
+    {
+        let position = vscode.window.activeTextEditor.selection.active;
+        startIndex   = position.character;
+    }
+
+    alignment.PerformAlignment(delimiter, startIndex, false);
 }
 
 function AlignByString()
@@ -51,11 +58,20 @@ function AlignByRegex()
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext)
 {
-    context.subscriptions.push(vscode.commands.registerCommand('codealignment.alignbystring', AlignByString         ));
-    context.subscriptions.push(vscode.commands.registerCommand('codealignment.alignbyequals', () => doAlignment('=')));
-    context.subscriptions.push(vscode.commands.registerCommand('codealignment.alignbyperiod', () => doAlignment('.')));
-    context.subscriptions.push(vscode.commands.registerCommand('codealignment.alignbyquote',  () => doAlignment('"')));
-    context.subscriptions.push(vscode.commands.registerCommand('codealignment.alignbyregex',  AlignByRegex          ));
+    subscribeCommand(context, 'codealignment.alignbystring', AlignByString);
+    subscribeCommand(context, 'codealignment.alignbyregex',  AlignByRegex);
+
+    subscribeCommand(context, 'codealignment.alignbyequals',          () => doAlignment(' ='));
+    subscribeCommand(context, 'codealignment.alignbyequalsfromcaret', () => doAlignment(' =', false, true));
+    subscribeCommand(context, 'codealignment.alignbyperiod',          () => doAlignment('.', false, true));
+    subscribeCommand(context, 'codealignment.alignbyquote',           () => doAlignment('"'));
+    subscribeCommand(context, 'codealignment.alignbyquotefromcaret',  () => doAlignment('"', false, true));
+    subscribeCommand(context, 'codealignment.alignbyspace',           () => doAlignment("\\s[^\\s]", true, true));
+}
+
+function subscribeCommand(context: vscode.ExtensionContext, key: string, callback: (...args: any[]) => any)
+{
+    context.subscriptions.push(vscode.commands.registerCommand(key, callback));
 }
 
 export function deactivate()

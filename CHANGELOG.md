@@ -2,12 +2,16 @@
 All notable changes to the "codealignment-vscode" extension will be documented in this file.
 
 ## [Unreleased]
-- #6 Allow Alignments from Caret Position
-- #8 Expose Align by Space
+
+## 2.0 - 2018-01-28
+- Allow Alignments from Caret Position  (Ticket 6)
+- Expose Align by Space  (Ticket 8)
+- Change Align by equals delimiter to be a space then equals (Ticket 16)
+- Fixed: Automatic scope selection is used when column marking is used (Ticket 15)
 
 ## 1.2 - 2018-01-28
 ### Added
-- #10 Introduce key bindings 
+- Introduce key bindings (Ticket 10)
 
 ## 1.0 - 2018-01-27
 ### Added

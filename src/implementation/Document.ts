@@ -18,12 +18,12 @@ export class Document implements IDocument
 
     public get StartSelectionLineNumber() : number
     {
-        return this.m_editor.selection.start.line;
+        return Math.min(...this.m_editor.selections.map(x => x.start.line));
     }
 
     public get EndSelectionLineNumber() : number
     {
-        return this.m_editor.selection.end.line;
+        return Math.max(...this.m_editor.selections.map(x => x.end.line));
     }
 
     public get CaretColumn() : number
