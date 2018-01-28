@@ -26,10 +26,12 @@
             { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" }
         ],
         "keybindings" : [
-            { "command": "codealignment.alignbystring", "key": "ctrl+shift+=",  "mac": "cmd+shift+=", "when": "editorTextFocus"},
-            { "command": "codealignment.alignbyequals", "key": "ctrl+= ctrl+=", "mac": "cmd+= cmd+=", "when": "editorTextFocus"},
-            { "command": "codealignment.alignbyperiod", "key": "ctrl+= ctrl+.", "mac": "cmd+= cmd+.", "when": "editorTextFocus"},
-            { "command": "codealignment.alignbyquote",  "key": "ctrl+= ctrl+'", "mac": "cmd+= cmd+'", "when": "editorTextFocus"}
+            { "command": "codealignment.alignbystring",          "key": "ctrl+shift+=",        "mac": "cmd+shift+=",       "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyequals",          "key": "ctrl+= ctrl+=",       "mac": "cmd+= cmd+=",       "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyequalsfromcaret", "key": "ctrl+= ctrl+shift+=", "mac": "cmd+= cmd+shift+=", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyperiod",          "key": "ctrl+= ctrl+.",       "mac": "cmd+= cmd+.",       "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyquote",           "key": "ctrl+= ctrl+'",       "mac": "cmd+= cmd+'",       "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyquotefromcaret",  "key": "ctrl+= ctrl+shift+'", "mac": "cmd+= cmd+shift+'", "when": "editorTextFocus"}
         ]
     },
     "scripts": {
