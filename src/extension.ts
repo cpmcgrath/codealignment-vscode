@@ -61,8 +61,8 @@ export function activate(context: vscode.ExtensionContext)
     subscribeCommand(context, 'codealignment.alignbystring', AlignByString);
     subscribeCommand(context, 'codealignment.alignbyregex',  AlignByRegex);
 
-    subscribeCommand(context, 'codealignment.alignbyequals',          () => doAlignment('='));
-    subscribeCommand(context, 'codealignment.alignbyequalsfromcaret', () => doAlignment('=', false, true));
+    subscribeCommand(context, 'codealignment.alignbyequals',          () => doAlignment(' ='));
+    subscribeCommand(context, 'codealignment.alignbyequalsfromcaret', () => doAlignment(' =', false, true));
     subscribeCommand(context, 'codealignment.alignbyperiod',          () => doAlignment('.', false, true));
     subscribeCommand(context, 'codealignment.alignbyquote',           () => doAlignment('"'));
     subscribeCommand(context, 'codealignment.alignbyquotefromcaret',  () => doAlignment('"', false, true));

@@ -4,6 +4,7 @@ All notable changes to the "codealignment-vscode" extension will be documented i
 ## [Unreleased]
 - Allow Alignments from Caret Position  (Ticket 6)
 - Expose Align by Space  (Ticket 8)
+- Change Align by equals delimiter to be a space then equals (Ticket 16)
 
 ## 1.2 - 2018-01-28
 ### Added
