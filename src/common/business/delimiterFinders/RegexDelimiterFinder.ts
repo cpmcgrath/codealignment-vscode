@@ -16,14 +16,14 @@ export class RegexDelimiterFinder extends NormalDelimiterFinder
         //var match = Regex.Match(source.substring(minIndex), delimiter);
         var match = source.substring(minIndex).match(delimiter);
 
-        if (match.length === 0)
+        if (match === null)
         {
             return DelimiterResult.Create(-1);
         }
 
         var result = new DelimiterResult();
-        result.CompareIndex = minIndex + this.GetGroupIndex(match, "compare", "x"),
-        result.InsertIndex  = minIndex + this.GetGroupIndex(match, "insert", "compare", "x")
+        result.CompareIndex = minIndex + this.GetGroupIndex(match, "compare", "x");
+        result.InsertIndex  = minIndex + this.GetGroupIndex(match, "insert", "compare", "x");
         return result;
     }
 

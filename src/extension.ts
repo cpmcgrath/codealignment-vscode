@@ -66,6 +66,7 @@ export function activate(context: vscode.ExtensionContext)
     subscribeCommand(context, 'codealignment.alignbyperiod',          () => doAlignment('.', false, true));
     subscribeCommand(context, 'codealignment.alignbyquote',           () => doAlignment('"'));
     subscribeCommand(context, 'codealignment.alignbyquotefromcaret',  () => doAlignment('"', false, true));
+    subscribeCommand(context, 'codealignment.alignbyspace',           () => doAlignment("\\s[^\\s]", true, true));
 }
 
 function subscribeCommand(context: vscode.ExtensionContext, key: string, callback: (...args: any[]) => any)

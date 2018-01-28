@@ -2,12 +2,12 @@
 All notable changes to the "codealignment-vscode" extension will be documented in this file.
 
 ## [Unreleased]
-- #6 Allow Alignments from Caret Position
-- #8 Expose Align by Space
+- Allow Alignments from Caret Position  (Ticket 6)
+- Expose Align by Space  (Ticket 8)
 
 ## 1.2 - 2018-01-28
 ### Added
-- #10 Introduce key bindings 
+- Introduce key bindings (Ticket 10)
 
 ## 1.0 - 2018-01-27
 ### Added

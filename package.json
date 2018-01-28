@@ -14,7 +14,8 @@
         "onCommand:codealignment.alignbyequals",
         "onCommand:codealignment.alignbyperiod",
         "onCommand:codealignment.alignbyquote",
-        "onCommand:codealignment.alignbyregex"
+        "onCommand:codealignment.alignbyregex",
+        "onCommand:codealignment.alignbyspace"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -23,7 +24,8 @@
             { "command": "codealignment.alignbyequals", "title"  : "Align by equals (Code Alignment)" },
             { "command": "codealignment.alignbyperiod", "title"  : "Align by period (Code Alignment)" },
             { "command": "codealignment.alignbyquote",  "title"  : "Align by quote (Code Alignment)" },
-            { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" }
+            { "command": "codealignment.alignbyregex",  "title"  : "Align by regex (Code Alignment)" },
+            { "command": "codealignment.alignbyspace",  "title"  : "Align by space (Code Alignment)" }
         ],
         "keybindings" : [
             { "command": "codealignment.alignbystring",          "key": "ctrl+shift+=",        "mac": "cmd+shift+=",       "when": "editorTextFocus"},
@@ -31,7 +33,8 @@
             { "command": "codealignment.alignbyequalsfromcaret", "key": "ctrl+= ctrl+shift+=", "mac": "cmd+= cmd+shift+=", "when": "editorTextFocus"},
             { "command": "codealignment.alignbyperiod",          "key": "ctrl+= ctrl+.",       "mac": "cmd+= cmd+.",       "when": "editorTextFocus"},
             { "command": "codealignment.alignbyquote",           "key": "ctrl+= ctrl+'",       "mac": "cmd+= cmd+'",       "when": "editorTextFocus"},
-            { "command": "codealignment.alignbyquotefromcaret",  "key": "ctrl+= ctrl+shift+'", "mac": "cmd+= cmd+shift+'", "when": "editorTextFocus"}
+            { "command": "codealignment.alignbyquotefromcaret",  "key": "ctrl+= ctrl+shift+'", "mac": "cmd+= cmd+shift+'", "when": "editorTextFocus"},
+            { "command": "codealignment.alignbyspace",           "key": "ctrl+= ctrl+space",   "mac": "cmd+= cmd+space",   "when": "editorTextFocus"}
         ]
     },
     "scripts": {
