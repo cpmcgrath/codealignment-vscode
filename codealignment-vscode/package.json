@@ -1,0 +1,121 @@
+{
+    "name": "codealignment-vscode",
+    "displayName": "Code alignment",
+    "description": "Code Alignment for Visual Studio Code. Based on the Extension for Visual Studio.",
+    "version": "0.0.1",
+    "publisher": "cpmcgrath",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "keywords": [
+        "align",
+        "alignment",
+        "formatting"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cpmcgrath/codealignment-vscode"
+    },
+    "icon": "images/CodeAlignment.png",
+    "activationEvents": [
+        "onCommand:codealignment.alignbystring",
+        "onCommand:codealignment.alignbyequals",
+        "onCommand:codealignment.alignbyperiod",
+        "onCommand:codealignment.alignbyquote",
+        "onCommand:codealignment.alignbyregex",
+        "onCommand:codealignment.alignbyspace"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "codealignment.alignbystring",
+                "title": "Align by string (Code Alignment)"
+            },
+            {
+                "command": "codealignment.alignbyequals",
+                "title": "Align by equals (Code Alignment)"
+            },
+            {
+                "command": "codealignment.alignbyperiod",
+                "title": "Align by period (Code Alignment)"
+            },
+            {
+                "command": "codealignment.alignbyquote",
+                "title": "Align by quote (Code Alignment)"
+            },
+            {
+                "command": "codealignment.alignbyregex",
+                "title": "Align by regex (Code Alignment)"
+            },
+            {
+                "command": "codealignment.alignbyspace",
+                "title": "Align by space (Code Alignment)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "codealignment.alignbystring",
+                "key": "ctrl+shift+=",
+                "mac": "cmd+shift+=",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyequals",
+                "key": "ctrl+= ctrl+=",
+                "mac": "cmd+= cmd+=",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyequalsfromcaret",
+                "key": "ctrl+= ctrl+shift+=",
+                "mac": "cmd+= cmd+shift+=",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyperiod",
+                "key": "ctrl+= ctrl+.",
+                "mac": "cmd+= cmd+.",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyquote",
+                "key": "ctrl+= ctrl+'",
+                "mac": "cmd+= cmd+'",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyquotefromcaret",
+                "key": "ctrl+= ctrl+shift+'",
+                "mac": "cmd+= cmd+shift+'",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "codealignment.alignbyspace",
+                "key": "ctrl+= ctrl+space",
+                "mac": "cmd+= cmd+space",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "codealignment-common": "file:../codealignment-common"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}

@@ -1,23 +1,20 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { Line                 } from './implementation/line'
-import { Document             } from './implementation/document'
-import { Alignment            } from './common/business/Alignment'
-import { GeneralScopeSelector } from './common/business/selectors/GeneralScopeSelector';
-import { RegexDelimiterFinder } from './common/business/delimiterFinders/RegexDelimiterFinder';
-import { Options              } from './common/business/Options';
+import * as common from 'codealignment-common'
+import { Line     } from './implementation/line'
+import { Document } from './implementation/document'
 
 function doAlignment(delimiter: string, useRegex: boolean = false, fromCaret: boolean = false)
 {
-    let alignment      = new Alignment();
+    let alignment      = new common.Alignment();
     alignment.View     = new Document(vscode.window.activeTextEditor);
-    let selector       = new GeneralScopeSelector();
-    selector.ScopeSelectorRegex = new Options().ScopeSelectorRegex;
+    let selector       = new common.GeneralScopeSelector();
+    selector.ScopeSelectorRegex = new common.Options().ScopeSelectorRegex;
     alignment.Selector = selector;
 
     if (useRegex)
-        alignment.Finder = new RegexDelimiterFinder();
+        alignment.Finder = new common.RegexDelimiterFinder();
 
     let startIndex = 0;
     if (fromCaret)

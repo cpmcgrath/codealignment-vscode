@@ -1,0 +1,20 @@
+{
+    "name": "codealignment-common",
+    "displayName": "Code alignment Common",
+    "description": "Code Alignment Common Library for TypeScript.",
+    "version": "0.0.1",
+    "publisher": "cpmcgrath",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cpmcgrath/codealignment-vscode"
+    },
+    "main": "out/index.js",
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^2.6.1"
+    }
+}

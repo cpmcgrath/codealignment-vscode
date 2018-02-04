@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
+import * as common from 'codealignment-common';
 
-export class Line implements ILine
+export class Line implements common.ILine
 {
     m_line : vscode.TextLine;
     m_doc  : vscode.TextDocument;
