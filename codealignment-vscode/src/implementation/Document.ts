@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
+import * as common from 'codealignment-common';
 import { Line } from './line'
 import { Edit } from './edit'
 
-export class Document implements IDocument
+export class Document implements common.IDocument
 {
     m_editor : vscode.TextEditor;
 
@@ -48,12 +49,12 @@ export class Document implements IDocument
         return ".cs";
     }
 
-    public GetLineFromLineNumber(lineNo: number) : ILine
+    public GetLineFromLineNumber(lineNo: number) : common.ILine
     {
         return new Line(this.m_editor.document, this.m_editor.document.lineAt(lineNo));
     }
 
-    public StartEdit() : IEdit
+    public StartEdit() : common.IEdit
     {
         return new Edit(this.m_editor);
     }

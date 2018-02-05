@@ -8,25 +8,40 @@ configuration:
     - Release
 
 install:
-    - cd "%APPVEYOR_BUILD_FOLDER%"
-    - npm install
     - npm install -g vsce
 
 build_script:
     - cd "%APPVEYOR_BUILD_FOLDER%"
     - ps: >-
-        if ($true)
+        function SetPackageVersion($dir)
         {
-            $file      = "package.json"
+            $file      = "$dir\package.json"
             $a         = Get-Content $file -raw | ConvertFrom-Json
             $a.version = $env:appveyor_build_version
             $a | ConvertTo-Json -Depth 20 | set-content $file
         }
+
+        if ($true)
+        {
+            SetPackageVersion 'codealignment-common' 
+            SetPackageVersion 'codealignment-vscode' 
+        }
+    - cd codealignment-common
+    - npm install
+    - npm run compile
+    - cd ../codealignment-vscode
+    - npm install
     - vsce package
 
 after_build:
     - cd "%APPVEYOR_BUILD_FOLDER%"
+    - cd codealignment-vscode
     - ps: Push-AppveyorArtifact "codealignment-vscode-$env:appveyor_build_version.vsix"
+    
+on_failure:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - cd codealignment-vscode
+    - ps: Push-AppveyorArtifact "*.log"
 
 deploy:
     provider: GitHub
