@@ -1,8 +1,8 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { Line                 } from './implementation/line'
-import { Document             } from './implementation/document'
+import { Line                 } from './implementation/Line'
+import { Document             } from './implementation/Document'
 import { Alignment            } from './common/business/Alignment'
 import { GeneralScopeSelector } from './common/business/selectors/GeneralScopeSelector';
 import { RegexDelimiterFinder } from './common/business/delimiterFinders/RegexDelimiterFinder';

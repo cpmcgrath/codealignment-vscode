@@ -1,5 +1,5 @@
 ﻿import { NormalDelimiterFinder } from "./delimiterFinders/NormalDelimiterFinder";
-import { LineDetails           } from "./lineDetails";
+import { LineDetails           } from "./LineDetails";
 import { StringFunctions       } from "./tools/StringFunctions";
 import { IDelimiterFinder      } from "./interfaces/IDelimiterFinder";
 import { ArrayFunctions        } from "./tools/ArrayFunctions";
