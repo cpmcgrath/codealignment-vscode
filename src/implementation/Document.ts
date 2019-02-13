@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { Line } from './line'
-import { Edit } from './edit'
+import { Line } from './Line'
+import { Edit } from './Edit'
 
 export class Document implements IDocument
 {

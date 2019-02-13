@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { Line } from './line'
+import { Line } from './Line'
 
 type ChangeData = { position: vscode.Position; text: string }
 

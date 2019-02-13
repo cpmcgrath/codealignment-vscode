@@ -1,4 +1,7 @@
-﻿export class GeneralScopeSelector implements IScopeSelector
+﻿import { Config } from '../../Config';
+import * as vscode from 'vscode';
+
+export class GeneralScopeSelector implements IScopeSelector
 {
     ScopeSelectorRegex : string;
     Start              : number; //nullable
@@ -25,7 +28,7 @@
     private GetStart(view: IDocument, start: number) : number
     {
         for (var i = start; i >= 0; i--)
-            if (this.IsLineBlank(view, i))
+            if (this.IsLineBlank(view, i) || this.StopRexexMatches(view, i))
                 return i + 1;
 
         return 0;
@@ -34,10 +37,29 @@
     private GetEnd(view: IDocument, end: number) : number
     {
         for (var i = end; i < view.LineCount; i++)
-            if (this.IsLineBlank(view, i))
+            if (this.IsLineBlank(view, i) || this.StopRexexMatches(view, i))
                 return i - 1;
 
         return view.LineCount - 1;
+    }
+
+    private StopRexexMatches(view: IDocument, lineNo: number): boolean
+    {
+        let line = view.GetLineFromLineNumber(lineNo);
+        let config = Config.GetConfig();
+        for(let pattern of config.stopregexes)
+        {
+            try
+            {
+                let regex = new RegExp(pattern);
+                if(regex.test(line.Text) == true)
+                    return true;
+            }
+            catch(error)
+            {
+                vscode.window.showErrorMessage(`Could not test regex with pattern ${pattern}, maybe it is invalid (you have to double escape \\)? Exception: ${error}`)
+            }
+        }
     }
 
     private IsLineBlank(view: IDocument, lineNo: number) : boolean
